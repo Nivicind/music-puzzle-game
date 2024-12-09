@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
+    private bool facingRight = true;
 
     void Start()
     {
@@ -27,6 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
         // Set velocity based on input
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        // Flip the player to face the direction of movement
+        if (moveInput > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (moveInput < 0 && facingRight)
+        {
+            Flip();
+        }
 
         // **Handle Jump Input**
         if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
@@ -52,5 +63,13 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             Debug.Log("Player is No Longer Grounded");
         }
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
+        transform.localScale = scaler;
     }
 }
