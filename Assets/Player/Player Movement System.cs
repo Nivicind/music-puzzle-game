@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         // **Handle Jump Input**
         if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("Jump Input Detected");
+            // Debug.Log("Jump Input Detected");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
-            Debug.Log("Player is Grounded");
+            // Debug.Log("Player is Grounded");
         }
     }
 
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
-            Debug.Log("Player is No Longer Grounded");
+            // Debug.Log("Player is No Longer Grounded");
         }
     }
 
