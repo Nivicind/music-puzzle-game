@@ -7,43 +7,34 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private bool facingRight = true;
 
-    void Start()
+    bool isFacingRight = true;
+
+void Start()
+{
+    rb = GetComponent<Rigidbody2D>();
+}
+
+void Update()
+{
+    float moveInput = Input.GetAxis("Horizontal");
+    rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+    if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
     {
-        rb = GetComponent<Rigidbody2D>();
+        Debug.Log("Jump Input Detected");
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
-    void FixedUpdate()
+    // Flip the player based on the movement direction
+    if (moveInput > 0 && !isFacingRight)
     {
-        // **Handle Movement Input**
-        float moveInput = Input.GetAxis("Horizontal");
-
-        // if (moveInput != 0)
-        // {
-        //     Debug.Log($"Move Input Detected: {moveInput}\n" +
-        //                      $"- Ground state: {isGrounded} \n");
-        // }
-
-        // Set velocity based on input
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed * Time.deltaTime, rb.linearVelocity.y);
-
-        // Flip the player to face the direction of movement
-        if (moveInput > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (moveInput < 0 && facingRight)
-        {
-            Flip();
-        }
-
-        // **Handle Jump Input**
-        if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            // Debug.Log("Jump Input Detected");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        }
+        Flip();
+    }
+    else if (moveInput < 0 && isFacingRight)
+    {
+        Flip();
+    }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -51,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
-            // Debug.Log("Player is Grounded");
         }
     }
 
@@ -60,13 +50,12 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
-            // Debug.Log("Player is No Longer Grounded");
         }
     }
 
     void Flip()
     {
-        facingRight = !facingRight;
+        isFacingRight = !isFacingRight;
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
