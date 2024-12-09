@@ -19,12 +19,11 @@ public class PlayerMovement : MonoBehaviour
         // **Handle Movement Input**
         float moveInput = Input.GetAxis("Horizontal");
 
-        if (moveInput != 0)
-        {
-            Debug.Log($"Move Input Detected: {moveInput}\n" +
-                             $"- Ground state: {isGrounded} \n" +
-                             $"- Rigidbody velocity: {rb.linearVelocity}");
-        }
+        // if (moveInput != 0)
+        // {
+        //     Debug.Log($"Move Input Detected: {moveInput}\n" +
+        //                      $"- Ground state: {isGrounded} \n");
+        // }
 
         // Set velocity based on input
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
