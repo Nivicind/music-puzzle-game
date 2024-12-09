@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // **Handle Movement Input**
         float moveInput = Input.GetAxis("Horizontal");
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         // }
 
         // Set velocity based on input
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed * Time.deltaTime, rb.linearVelocity.y);
 
         // Flip the player to face the direction of movement
         if (moveInput > 0 && !facingRight)
