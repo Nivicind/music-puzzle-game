@@ -7,6 +7,7 @@ public class CameraSwitch : MonoBehaviour
     public CinemachineCamera pedestalCamera;
     [SerializeField] private KeyCode switchKey = KeyCode.Space;
     [SerializeField] private GameObject playerGameObject;
+    [SerializeField] private GameObject pedestalInterface; // The Pedestal Interface GameObject
 
     private MonoBehaviour[] playerScripts;
     private bool isPedestalView = false;
@@ -18,6 +19,12 @@ public class CameraSwitch : MonoBehaviour
         if (playerGameObject != null)
         {
             playerScripts = playerGameObject.GetComponents<MonoBehaviour>();
+        }
+
+        // Ensure the Pedestal Interface is disabled initially
+        if (pedestalInterface != null)
+        {
+            pedestalInterface.SetActive(false);
         }
     }
 
@@ -49,6 +56,7 @@ public class CameraSwitch : MonoBehaviour
         playerFollowCamera.Priority = 5;
         pedestalCamera.Priority = 10;
         EnablePlayerScripts(false);
+        TogglePedestalInterface(true);
         isPedestalView = true;
     }
 
@@ -58,6 +66,7 @@ public class CameraSwitch : MonoBehaviour
         playerFollowCamera.Priority = 10;
         pedestalCamera.Priority = 5;
         EnablePlayerScripts(true);
+        TogglePedestalInterface(false);
         isPedestalView = false;
     }
 
@@ -71,6 +80,14 @@ public class CameraSwitch : MonoBehaviour
             {
                 script.enabled = enable;
             }
+        }
+    }
+
+    private void TogglePedestalInterface(bool enable)
+    {
+        if (pedestalInterface != null)
+        {
+            pedestalInterface.SetActive(enable);
         }
     }
 
