@@ -4,10 +4,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public float jumpBufferTime = 0.2f; // Time window to buffer jumps
 
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool facingRight = true;
+    private float lastJumpInputTime = -1f; // Tracks the last time jump was pressed
 
     void Start()
     {
@@ -16,14 +18,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // **Handle Movement Input**
-        float moveInput = Input.GetAxis("Horizontal");
+        float moveInput = 0f;
 
-        // if (moveInput != 0)
-        // {
-        //     Debug.Log($"Move Input Detected: {moveInput}\n" +
-        //                      $"- Ground state: {isGrounded} \n");
-        // }
+        // Allow movement only with the arrow keys
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            moveInput = 1f;
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            moveInput = -1f;
+        }
 
         // Set velocity based on input
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
@@ -38,11 +43,17 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
-        // **Handle Jump Input**
-        if (isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+        // Handle Jump Input
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            // Debug.Log("Jump Input Detected");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            lastJumpInputTime = Time.time; // Record the time of jump input
+        }
+
+        // Attempt to jump if the player is grounded and within the buffer window
+        if (isGrounded && Time.time - lastJumpInputTime <= jumpBufferTime)
+        {
+            Jump();
+            lastJumpInputTime = -1f; // Reset the buffer after jumping
         }
     }
 
@@ -51,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
-            // Debug.Log("Player is Grounded");
         }
     }
 
@@ -60,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
-            // Debug.Log("Player is No Longer Grounded");
         }
     }
 
@@ -70,5 +79,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    void Jump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 }
