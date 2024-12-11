@@ -5,9 +5,13 @@ public class DrawNote : MonoBehaviour
 {
     public Tilemap tilemap; // Reference to the Tilemap in your scene
     public Tile bridgeTile; // Tile to use for the bridge
-    public float drawInterval = 0.05f; // Time between placing each tile
+    public float drawSpeed = 1f; // Time between placing each tile
     public Collider2D drawArea; // Reference to the large box collider
     public GameObject pedestalInterface; // Reference to the Pedestal Interface GameObject
+
+    public KeyCode DrawNoteKey = KeyCode.A; // Key to start drawing
+    public KeyCode Reset = KeyCode.Backspace; // Key to stop drawing
+
 
     private bool isDrawing = false; // Whether the bridge is being drawn
     private bool canDraw = true; // Whether a bridge can be drawn
@@ -20,13 +24,13 @@ public class DrawNote : MonoBehaviour
         if (pedestalInterface != null && pedestalInterface.activeSelf)
         {
             // Start drawing when "A" key is pressed
-            if (Input.GetKeyDown(KeyCode.A) && canDraw)
+            if (Input.GetKeyDown(DrawNoteKey) && canDraw)
             {
                 StartDrawing();
             }
 
             // Stop drawing when "A" key is released
-            if (Input.GetKeyUp(KeyCode.A))
+            if (Input.GetKeyUp(DrawNoteKey))
             {
                 StopDrawing();
             }
@@ -37,8 +41,8 @@ public class DrawNote : MonoBehaviour
                 DrawBridge();
             }
 
-            // Reset the bridge when "Backspace" is pressed
-            if (Input.GetKeyDown(KeyCode.Backspace))
+            // Prevent resetting the bridge (Backspace) when the "A" key is held
+            if (!isDrawing && Input.GetKeyDown(Reset))
             {
                 ResetBridge();
             }
@@ -71,7 +75,7 @@ public class DrawNote : MonoBehaviour
             currentCellPosition += new Vector3Int(1, 0, 0);
 
             // Update the next draw time
-            nextDrawTime = Time.time + drawInterval;
+            nextDrawTime = Time.time + drawSpeed / 1000;
         }
         else
         {
