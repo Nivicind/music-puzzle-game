@@ -17,7 +17,7 @@ public class DrawNotesManager : MonoBehaviour
     private Vector3Int[] currentCellPositions; // Tracks current cell positions for each note
     private float[] nextDrawTimes; // Tracks the next draw time for each note
     private bool anyDrawingActive; // Tracks whether any note is currently being drawn
-
+    private bool isDrawingLocked; // Tracks whether drawing is locked
     private Vector3 startingPosition; // Starting position of the script's GameObject
 
     void Start()
@@ -28,6 +28,7 @@ public class DrawNotesManager : MonoBehaviour
         currentCellPositions = new Vector3Int[noteCount];
         nextDrawTimes = new float[noteCount];
         globalFurthestX = startingPosition.x; // Initialize furthest X to the starting position
+        isDrawingLocked = false; // Drawing starts unlocked
     }
 
     void Update()
@@ -36,30 +37,33 @@ public class DrawNotesManager : MonoBehaviour
         {
             anyDrawingActive = false; // Reset the active drawing tracker
 
-            for (int i = 0; i < noteKeys.Length; i++)
+            if (!isDrawingLocked)
             {
-                // Start drawing when the note key is pressed
-                if (Input.GetKeyDown(noteKeys[i]))
+                for (int i = 0; i < noteKeys.Length; i++)
                 {
-                    StartDrawing(i);
-                }
+                    // Start drawing when the note key is pressed
+                    if (Input.GetKeyDown(noteKeys[i]))
+                    {
+                        StartDrawing(i);
+                    }
 
-                // Stop drawing when the note key is released
-                if (Input.GetKeyUp(noteKeys[i]))
-                {
-                    StopDrawing(i);
-                }
+                    // Stop drawing when the note key is released
+                    if (Input.GetKeyUp(noteKeys[i]))
+                    {
+                        StopDrawing(i);
+                    }
 
-                // Draw the note incrementally if active
-                if (isDrawing[i])
-                {
-                    anyDrawingActive = true; // Mark as active
-                    DrawNoteIncrementally(i);
+                    // Draw the note incrementally if active
+                    if (isDrawing[i])
+                    {
+                        anyDrawingActive = true; // Mark as active
+                        DrawNoteIncrementally(i);
+                    }
                 }
             }
 
-            // Reset all notes when the reset key is pressed and no drawing is active
-            if (Input.GetKeyDown(resetKey) && !anyDrawingActive)
+            // Reset all notes when the reset key is pressed
+            if (Input.GetKeyDown(resetKey))
             {
                 ResetNotes();
             }
@@ -68,6 +72,8 @@ public class DrawNotesManager : MonoBehaviour
 
     void StartDrawing(int noteIndex)
     {
+        if (isDrawingLocked) return; // Prevent drawing if locked
+
         isDrawing[noteIndex] = true;
 
         // Initialize the starting cell position for the note
@@ -100,12 +106,18 @@ public class DrawNotesManager : MonoBehaviour
         else
         {
             StopDrawing(noteIndex);
+            LockDrawing(); // Lock drawing if edge is reached
         }
     }
 
     void StopDrawing(int noteIndex)
     {
         isDrawing[noteIndex] = false;
+    }
+
+    void LockDrawing()
+    {
+        isDrawingLocked = true;
     }
 
     void ResetNotes()
@@ -118,5 +130,6 @@ public class DrawNotesManager : MonoBehaviour
             isDrawing[i] = false;
             nextDrawTimes[i] = 0;
         }
+        isDrawingLocked = false; // Unlock drawing
     }
 }
