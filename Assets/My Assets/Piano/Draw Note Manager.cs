@@ -67,9 +67,15 @@ public class DrawNotesManager : MonoBehaviour
             {
                 ResetNotes();
             }
+
+            // Example usage of anyDrawingActive
+            if (anyDrawingActive)
+            {
+                // Perform some action when any drawing is active
+                Debug.Log("A note is currently being drawn.");
+            }
         }
     }
-
     void StartDrawing(int noteIndex)
     {
         if (isDrawingLocked) return; // Prevent drawing if locked

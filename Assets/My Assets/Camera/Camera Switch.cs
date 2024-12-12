@@ -7,18 +7,18 @@ public class CameraSwitch : MonoBehaviour
     public CinemachineCamera pedestalCamera;
     [SerializeField] private KeyCode switchKey = KeyCode.Space;
     [SerializeField] private GameObject playerGameObject;
-    [SerializeField] private GameObject pedestalInterface; // The Pedestal Interface GameObject
+    [SerializeField] private GameObject pedestalInterface;
 
-    private MonoBehaviour[] playerScripts;
+    private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private bool isPedestalView = false;
     private bool isPlayerInRange = false;
 
     void Start()
     {
-        // Find all MonoBehaviour scripts on the player
+        // Get the PlayerMovement component from the playerGameObject
         if (playerGameObject != null)
         {
-            playerScripts = playerGameObject.GetComponents<MonoBehaviour>();
+            playerMovement = playerGameObject.GetComponent<PlayerMovement>();
         }
 
         // Ensure the Pedestal Interface is disabled initially
@@ -30,7 +30,6 @@ public class CameraSwitch : MonoBehaviour
 
     void Update()
     {
-        // Handle toggling when player is in range
         if (isPlayerInRange && Input.GetKeyDown(switchKey))
         {
             if (isPedestalView)
@@ -43,7 +42,6 @@ public class CameraSwitch : MonoBehaviour
             }
         }
 
-        // Automatically exit pedestal mode if the player leaves the trigger
         if (!isPlayerInRange && isPedestalView)
         {
             ExitPedestalMode();
@@ -52,43 +50,38 @@ public class CameraSwitch : MonoBehaviour
 
     void EnterPedestalMode()
     {
-        // Switch to Pedestal Camera
         playerFollowCamera.Priority = 5;
         pedestalCamera.Priority = 10;
-        EnablePlayerScripts(false);
-        TogglePedestalInterface(true);
+
+        if (playerMovement != null)
+        {
+            playerMovement.EnableMovement(false); // Disable player movement
+        }
+
+        if (pedestalInterface != null)
+        {
+            pedestalInterface.SetActive(true); // Show pedestal interface
+        }
+
         isPedestalView = true;
     }
 
     void ExitPedestalMode()
     {
-        // Switch to Player-Follow Camera
         playerFollowCamera.Priority = 10;
         pedestalCamera.Priority = 5;
-        EnablePlayerScripts(true);
-        TogglePedestalInterface(false);
-        isPedestalView = false;
-    }
 
-    private void EnablePlayerScripts(bool enable)
-    {
-        if (playerScripts == null) return;
-
-        foreach (var script in playerScripts)
+        if (playerMovement != null)
         {
-            if (script != null)
-            {
-                script.enabled = enable;
-            }
+            playerMovement.EnableMovement(true); // Enable player movement
         }
-    }
 
-    private void TogglePedestalInterface(bool enable)
-    {
         if (pedestalInterface != null)
         {
-            pedestalInterface.SetActive(enable);
+            pedestalInterface.SetActive(false); // Hide pedestal interface
         }
+
+        isPedestalView = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
