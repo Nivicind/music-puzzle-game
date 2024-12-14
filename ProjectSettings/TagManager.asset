@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Platform
+  - Camera Zone
   layers:
   - Default
   - TransparentFX

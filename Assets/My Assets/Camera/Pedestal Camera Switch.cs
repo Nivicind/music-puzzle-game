@@ -1,13 +1,14 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
-public class CameraSwitch : MonoBehaviour
+public class PedestalCameraSwitch : MonoBehaviour
 {
     public CinemachineCamera playerFollowCamera;
     public CinemachineCamera pedestalCamera;
     [SerializeField] private KeyCode switchKey = KeyCode.Space;
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject pedestalInterface;
+    [SerializeField] private GameObject drawNotesGameObject; // Reference to the DrawNotesManager GameObject
 
     private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private bool isPedestalView = false;
@@ -21,10 +22,15 @@ public class CameraSwitch : MonoBehaviour
             playerMovement = playerGameObject.GetComponent<PlayerMovement>();
         }
 
-        // Ensure the Pedestal Interface is disabled initially
+        // Ensure the Pedestal Interface and DrawNotesManager are disabled initially
         if (pedestalInterface != null)
         {
             pedestalInterface.SetActive(false);
+        }
+
+        if (drawNotesGameObject != null)
+        {
+            drawNotesGameObject.SetActive(false);
         }
     }
 
@@ -63,6 +69,11 @@ public class CameraSwitch : MonoBehaviour
             pedestalInterface.SetActive(true); // Show pedestal interface
         }
 
+        if (drawNotesGameObject != null)
+        {
+            drawNotesGameObject.SetActive(true); // Enable DrawNotesManager for this pedestal
+        }
+
         isPedestalView = true;
     }
 
@@ -79,6 +90,11 @@ public class CameraSwitch : MonoBehaviour
         if (pedestalInterface != null)
         {
             pedestalInterface.SetActive(false); // Hide pedestal interface
+        }
+
+        if (drawNotesGameObject != null)
+        {
+            drawNotesGameObject.SetActive(false); // Disable DrawNotesManager for this pedestal
         }
 
         isPedestalView = false;

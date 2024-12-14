@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: ea6a6931dadf1364cba960863640f105
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tilemap: {instanceID: 0}
+  - bridgeTile: {fileID: 11400000, guid: ae178665bd14ba34db4a9558bcc7e04d, type: 2}
+  - drawArea: {instanceID: 0}
+  - pedestalInterface: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,7 +5,7 @@ public class DrawNotesManager : MonoBehaviour
 {
     public Tilemap tilemap; // Reference to the Tilemap
     public Tile bridgeTile; // Tile to use for drawing
-    public float drawInterval = 1.0f; // Time between drawing each tile
+    public float drawSpeed = 1.0f; // Speed of drawing; higher = faster
     public Collider2D drawArea; // Area where drawing is allowed
     public GameObject pedestalInterface; // Pedestal Interface GameObject
     public KeyCode[] noteKeys; // Array of keys for each note
@@ -76,6 +76,7 @@ public class DrawNotesManager : MonoBehaviour
             }
         }
     }
+
     void StartDrawing(int noteIndex)
     {
         if (isDrawingLocked) return; // Prevent drawing if locked
@@ -106,8 +107,8 @@ public class DrawNotesManager : MonoBehaviour
             // Move to the next cell to the right
             currentCellPositions[noteIndex] += new Vector3Int(1, 0, 0);
 
-            // Update the next draw time
-            nextDrawTimes[noteIndex] = Time.time + drawInterval / 1000;
+            // Update the next draw time using the inverted drawSpeed
+            nextDrawTimes[noteIndex] = Time.time + (1 / drawSpeed);
         }
         else
         {
