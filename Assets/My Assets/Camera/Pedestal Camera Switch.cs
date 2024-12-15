@@ -1,5 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class PedestalCameraSwitch : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class PedestalCameraSwitch : MonoBehaviour
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject pedestalInterface;
     [SerializeField] private GameObject drawNotesGameObject; // Reference to the DrawNotesManager GameObject
+    [SerializeField] private GameObject keyboardPicture; // Reference to the keyboard picture GameObject
 
     private PlayerMovement playerMovement; // Reference to the PlayerMovement script
     private bool isPedestalView = false;
@@ -31,6 +34,12 @@ public class PedestalCameraSwitch : MonoBehaviour
         if (drawNotesGameObject != null)
         {
             drawNotesGameObject.SetActive(false);
+        }
+
+        // Set the initial opacity of the keyboard picture to 0
+        if (keyboardPicture != null)
+        {
+            SetOpacity(keyboardPicture, 0f);
         }
     }
 
@@ -74,6 +83,11 @@ public class PedestalCameraSwitch : MonoBehaviour
             drawNotesGameObject.SetActive(true); // Enable DrawNotesManager for this pedestal
         }
 
+        if (keyboardPicture != null)
+        {
+            StartCoroutine(FadeOpacity(keyboardPicture, 0.5f, 1f)); // Gradually increase opacity to 50%
+        }
+
         isPedestalView = true;
     }
 
@@ -97,6 +111,11 @@ public class PedestalCameraSwitch : MonoBehaviour
             drawNotesGameObject.SetActive(false); // Disable DrawNotesManager for this pedestal
         }
 
+        if (keyboardPicture != null)
+        {
+            StartCoroutine(FadeOpacity(keyboardPicture, 0f, 1f)); // Gradually decrease opacity to 0%
+        }
+
         isPedestalView = false;
     }
 
@@ -113,6 +132,37 @@ public class PedestalCameraSwitch : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInRange = false;
+        }
+    }
+
+    private void SetOpacity(GameObject obj, float opacity)
+    {
+        Image image = obj.GetComponent<Image>();
+        if (image != null)
+        {
+            Color color = image.color;
+            color.a = opacity;
+            image.color = color;
+        }
+    }
+
+    private IEnumerator FadeOpacity(GameObject obj, float targetOpacity, float duration)
+    {
+        Image image = obj.GetComponent<Image>();
+        if (image != null)
+        {
+            float startOpacity = image.color.a;
+            float elapsedTime = 0f;
+
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                float newOpacity = Mathf.Lerp(startOpacity, targetOpacity, elapsedTime / duration);
+                SetOpacity(obj, newOpacity);
+                yield return null;
+            }
+
+            SetOpacity(obj, targetOpacity);
         }
     }
 }
