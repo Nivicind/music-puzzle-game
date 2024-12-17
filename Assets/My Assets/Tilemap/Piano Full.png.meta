@@ -1,0 +1,686 @@
+fileFormatVersion: 2
+guid: c07e346ac72b30f448116d18b5f60706
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8397854995673852565
+    second: Piano Full_0
+  - first:
+      213: 7256796034065071458
+    second: Piano Full_1
+  - first:
+      213: -8369088054072253705
+    second: Piano Full_2
+  - first:
+      213: -6348388667388636942
+    second: Piano Full_3
+  - first:
+      213: -1894422555375453276
+    second: Piano Full_4
+  - first:
+      213: 3223604290509470548
+    second: Piano Full_5
+  - first:
+      213: -5684765968579096518
+    second: Piano Full_6
+  - first:
+      213: 2229162299447760511
+    second: Piano Full_7
+  - first:
+      213: 8395450052530622685
+    second: Piano Full_8
+  - first:
+      213: -4946886614204431386
+    second: Piano Full_9
+  - first:
+      213: -2499212870529895410
+    second: Piano Full_10
+  - first:
+      213: 175029658814078542
+    second: Piano Full_11
+  - first:
+      213: -615267902454505770
+    second: Piano Full_12
+  - first:
+      213: -7823044283764642333
+    second: Piano Full_13
+  - first:
+      213: -8223346703256056426
+    second: Piano Full_14
+  - first:
+      213: -6629208044148461704
+    second: Piano Full_15
+  - first:
+      213: -3598868994308477555
+    second: Piano Full_16
+  - first:
+      213: -3345592504141512629
+    second: Piano Full_17
+  - first:
+      213: -4851978805491954973
+    second: Piano Full_18
+  - first:
+      213: 827444107883402652
+    second: Piano Full_19
+  - first:
+      213: -6855624818366967187
+    second: Piano Full_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Piano Full_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 776
+        width: 352
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a2164ff9c2b8470800000000000000
+      internalID: 8397854995673852565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 408
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d79e97b8155b460800000000000000
+      internalID: 7256796034065071458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f2ee0391c60bdb80800000000000000
+      internalID: -8369088054072253705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f05f28642ef5e7a0800000000000000
+      internalID: -6348388667388636942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_4
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abbb5419b8a5b5e0800000000000000
+      internalID: -1894422555375453276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_5
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45bfd38d50b8cbc20800000000000000
+      internalID: 3223604290509470548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_6
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a301d938877ab11b0800000000000000
+      internalID: -5684765968579096518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_7
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76d64dfc439fee10800000000000000
+      internalID: 2229162299447760511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_8
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd05f9e7751a28470800000000000000
+      internalID: 8395450052530622685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 344
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e3c53885d0295bb0800000000000000
+      internalID: -4946886614204431386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e043bf9b223015dd0800000000000000
+      internalID: -2499212870529895410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_11
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 144
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e55ce1c84dd6200800000000000000
+      internalID: 175029658814078542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_12
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 144
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dedf704a112677f0800000000000000
+      internalID: -615267902454505770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_13
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 144
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edee041ca6fe6390800000000000000
+      internalID: -7823044283764642333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_14
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 144
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d0b871ebdc0ed80800000000000000
+      internalID: -8223346703256056426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_15
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 144
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f6e5a28625004a0800000000000000
+      internalID: -6629208044148461704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_16
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 144
+        width: 28
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d6311a7bf3e0ec0800000000000000
+      internalID: -3598868994308477555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_17
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 144
+        width: 29
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b408f6bd7511291d0800000000000000
+      internalID: -3345592504141512629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_18
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 144
+        width: 29
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea8de8bbfe4aacb0800000000000000
+      internalID: -4851978805491954973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_19
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 10
+        width: 16
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9551e9380cab7b00800000000000000
+      internalID: 827444107883402652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_20
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 10
+        width: 16
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6292e3ec8debd0a0800000000000000
+      internalID: -6855624818366967187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piano Full_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 352
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cd3814f38e31f4992a7a53d3500abd
+      internalID: -2129575023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 436467ec0b204f04a917f01197dc06e8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Piano Full_0: 8397854995673852565
+      Piano Full_1: 7256796034065071458
+      Piano Full_10: -2499212870529895410
+      Piano Full_11: 175029658814078542
+      Piano Full_12: -615267902454505770
+      Piano Full_13: -7823044283764642333
+      Piano Full_14: -8223346703256056426
+      Piano Full_15: -6629208044148461704
+      Piano Full_16: -3598868994308477555
+      Piano Full_17: -3345592504141512629
+      Piano Full_18: -4851978805491954973
+      Piano Full_19: 827444107883402652
+      Piano Full_2: -8369088054072253705
+      Piano Full_20: -6855624818366967187
+      Piano Full_21: -2129575023
+      Piano Full_3: -6348388667388636942
+      Piano Full_4: -1894422555375453276
+      Piano Full_5: 3223604290509470548
+      Piano Full_6: -5684765968579096518
+      Piano Full_7: 2229162299447760511
+      Piano Full_8: 8395450052530622685
+      Piano Full_9: -4946886614204431386
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
