@@ -152,3 +152,4 @@ MonoBehaviour:
   switchKey: 32
   playerGameObject: {fileID: 0}
   pedestalInterface: {fileID: 0}
+  drawNotesGameObject: {fileID: 0}
