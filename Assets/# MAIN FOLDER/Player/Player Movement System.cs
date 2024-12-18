@@ -24,14 +24,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMovementEnabled)
         {
-            // Use Arrow Keys for Horizontal Movement
+            // Use Arrow Keys or WASD for Horizontal Movement
             float moveInput = 0f;
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 moveInput = -1f;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 moveInput = 1f;
             }
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Handle Jump Input
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 lastJumpInputTime = Time.time; // Record the time of jump input
             }
