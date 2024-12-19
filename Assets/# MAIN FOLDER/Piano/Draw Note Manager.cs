@@ -16,7 +16,6 @@ public class DrawNotesManager : MonoBehaviour
     private bool[] isDrawing; // Tracks drawing state for each note
     private Vector3Int[] currentCellPositions; // Tracks current cell positions for each note
     private float[] nextDrawTimes; // Tracks the next draw time for each note
-    private bool anyDrawingActive; // Tracks whether any note is currently being drawn
     private bool isDrawingLocked; // Tracks whether drawing is locked
     private Vector3 startingPosition; // Starting position of the script's GameObject
 
@@ -35,8 +34,6 @@ public class DrawNotesManager : MonoBehaviour
     {
         if (pedestalInterface != null && pedestalInterface.activeSelf)
         {
-            anyDrawingActive = false; // Reset the active drawing tracker
-
             if (!isDrawingLocked)
             {
                 for (int i = 0; i < noteKeys.Length; i++)
@@ -56,7 +53,6 @@ public class DrawNotesManager : MonoBehaviour
                     // Draw the note incrementally if active
                     if (isDrawing[i])
                     {
-                        anyDrawingActive = true; // Mark as active
                         DrawNoteIncrementally(i);
                     }
                 }
@@ -67,13 +63,11 @@ public class DrawNotesManager : MonoBehaviour
             {
                 ResetNotes();
             }
-
-            // Example usage of anyDrawingActive
-            if (anyDrawingActive)
-            {
-                // Perform some action when any drawing is active
-                Debug.Log("A note is currently being drawn.");
-            }
+        }
+        else
+        {
+            // Stop all drawing when pedestal mode is exited
+            StopAllDrawing();
         }
     }
 
@@ -122,21 +116,35 @@ public class DrawNotesManager : MonoBehaviour
         isDrawing[noteIndex] = false;
     }
 
+    public void StopAllDrawing()
+    {
+        for (int i = 0; i < isDrawing.Length; i++)
+        {
+            isDrawing[i] = false; // Stop all drawing processes
+        }
+    }
+    public void UnlockDrawing()
+    {
+        isDrawingLocked = false; // Allow drawing to resume
+    }
     void LockDrawing()
     {
         isDrawingLocked = true;
     }
 
-    void ResetNotes()
+    public void ResetNotes()
     {
-        // Clear the tilemap and reset all states
         tilemap.ClearAllTiles();
         globalFurthestX = startingPosition.x; // Reset to the starting X position
+
         for (int i = 0; i < isDrawing.Length; i++)
         {
             isDrawing[i] = false;
             nextDrawTimes[i] = 0;
         }
+
         isDrawingLocked = false; // Unlock drawing
     }
+
+
 }
