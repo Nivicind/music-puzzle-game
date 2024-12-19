@@ -75,11 +75,17 @@ public class PedestalCameraSwitch : MonoBehaviour
         if (drawNotesGameObject != null)
         {
             drawNotesGameObject.SetActive(true);
+
+            // Reset the DrawNotesManager state if necessary
+            var drawNotesManager = drawNotesGameObject.GetComponent<DrawNotesManager>();
+            if (drawNotesManager != null)
+            {
+                drawNotesManager.UnlockDrawing(); // Unlock drawing functionality
+            }
         }
 
         isPedestalView = true;
     }
-
     void ExitPedestalMode()
     {
         PedestalUISlide uiSlide = pedestalInterface.GetComponentInChildren<PedestalUISlide>();
@@ -100,9 +106,14 @@ public class PedestalCameraSwitch : MonoBehaviour
 
         if (drawNotesGameObject != null)
         {
+            var drawNotesManager = drawNotesGameObject.GetComponent<DrawNotesManager>();
+            if (drawNotesManager != null)
+            {
+                drawNotesManager.StopAllDrawing();
+            }
             drawNotesGameObject.SetActive(false);
         }
-
+        
         isPedestalView = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
