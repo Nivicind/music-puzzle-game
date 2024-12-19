@@ -817,6 +817,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 104
+--- !u!1 &104242185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104242186}
+  m_Layer: 0
+  m_Name: Piano Machine (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104242186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104242185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.403087, y: 10.500095, z: 0.09403243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4163465663492461827}
+  - {fileID: 261325594}
+  - {fileID: 1574824865}
+  - {fileID: 568864496}
+  - {fileID: 1795383547}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114897199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,11 +1414,11 @@ Transform:
   m_GameObject: {fileID: 261325593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8449993, y: 1.94, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 39.403088, y: 6.9999046, z: -0.09403243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4163465663492461827}
+  m_Father: {fileID: 104242186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &261325595
 SpriteRenderer:
@@ -2499,11 +2535,11 @@ Transform:
   m_GameObject: {fileID: 568864495}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3449993, y: -1.06, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 40.403088, y: 0.99990463, z: -0.09403243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4163465663492461827}
+  m_Father: {fileID: 104242186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &568864497
 MonoBehaviour:
@@ -21721,11 +21757,11 @@ Transform:
   m_GameObject: {fileID: 1574824863}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.844999, y: 1.94, z: 0}
-  m_LocalScale: {x: 15, y: 0.5, z: 1}
+  m_LocalPosition: {x: 55.403088, y: 6.9999046, z: -0.09403243}
+  m_LocalScale: {x: 30, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4163465663492461827}
+  m_Father: {fileID: 104242186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1574824866
 SpriteRenderer:
@@ -22460,6 +22496,42 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1 &1714191353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1714191354}
+  m_Layer: 0
+  m_Name: Piano Machine (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714191354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714191353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.4700103, y: 10.067969, z: 0.12084127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2298750616775028680}
+  - {fileID: 8826403945728367657}
+  - {fileID: 433316361175335054}
+  - {fileID: 1209930090103928858}
+  - {fileID: 9151547604284431635}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1795383545
 GameObject:
   m_ObjectHideFlags: 0
@@ -22498,12 +22570,12 @@ Transform:
   m_GameObject: {fileID: 1795383545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.155001, y: -1.81, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.5, z: 1}
+  m_LocalPosition: {x: 5.4030876, y: -0.50009537, z: -0.09403243}
+  m_LocalScale: {x: 0.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 575522293}
-  m_Father: {fileID: 4163465663492461827}
+  m_Father: {fileID: 104242186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802991216
 GameObject:
@@ -23195,7 +23267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2059989808
 Transform:
   m_ObjectHideFlags: 0
@@ -23781,7 +23853,7 @@ GameObject:
   - component: {fileID: 7618547027119228597}
   - component: {fileID: 8270107415908009124}
   m_Layer: 0
-  m_Name: Piano Machine (2)
+  m_Name: Machine (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23823,11 +23895,11 @@ Transform:
   m_GameObject: {fileID: 7404961683967400073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.65, y: 1.9400005, z: 0}
-  m_LocalScale: {x: 7.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 3.9700103, y: 3.4320307, z: -0.12084127}
+  m_LocalScale: {x: 15, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2298750616775028680}
+  m_Father: {fileID: 1714191354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &810314769156957530
 MonoBehaviour:
@@ -23924,11 +23996,11 @@ Transform:
   m_GameObject: {fileID: 3846546227402987485}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9, y: -1.0599995, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: -3.5299897, y: -2.5679693, z: -0.12084127}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2298750616775028680}
+  m_Father: {fileID: 1714191354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1452192997563207753
 MonoBehaviour:
@@ -23966,15 +24038,11 @@ Transform:
   m_GameObject: {fileID: 2876896062584931286}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.8, y: 9.619999, z: 0}
+  m_LocalPosition: {x: -9.32999, y: -0.4479704, z: -0.12084127}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8826403945728367657}
-  - {fileID: 433316361175335054}
-  - {fileID: 1209930090103928858}
-  - {fileID: 9151547604284431635}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1714191354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2355652708827654276
 BoxCollider2D:
@@ -24035,7 +24103,7 @@ GameObject:
   - component: {fileID: 5736407661106707582}
   - component: {fileID: 6117021440770424431}
   m_Layer: 0
-  m_Name: Piano Machine (1)
+  m_Name: Machine (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24270,15 +24338,11 @@ Transform:
   m_GameObject: {fileID: 129933472571373853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.310001, y: 13.62, z: 0}
+  m_LocalPosition: {x: 35.71309, y: 3.1199045, z: -0.09403243}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 261325594}
-  - {fileID: 1574824865}
-  - {fileID: 568864496}
-  - {fileID: 1795383547}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 104242186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &4434911459745679298
 TilemapRenderer:
@@ -24536,7 +24600,7 @@ GameObject:
   - component: {fileID: 5262081045126644710}
   - component: {fileID: 6793725051507722715}
   m_Layer: 7
-  m_Name: Piano Bridge Tilemap
+  m_Name: Piano Bridge Tilemap (1)
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25077,7 +25141,7 @@ GameObject:
   - component: {fileID: 9151547604284431635}
   - component: {fileID: 6369701068940600971}
   m_Layer: 7
-  m_Name: Piano Bridge Grid
+  m_Name: Piano Bridge Grid (1)
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25130,11 +25194,11 @@ Transform:
   m_GameObject: {fileID: 885997818201547693}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4, y: 1.9400005, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: -4.5299897, y: 3.4320307, z: -0.12084127}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2298750616775028680}
+  m_Father: {fileID: 1714191354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &9151547604284431635
 Transform:
@@ -25145,12 +25209,12 @@ Transform:
   m_GameObject: {fileID: 7984783085370531529}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9, y: 0.19000053, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 2.4700103, y: -0.06796932, z: -0.12084127}
+  m_LocalScale: {x: 0.2, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3350524432716947653}
-  m_Father: {fileID: 2298750616775028680}
+  m_Father: {fileID: 1714191354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -25160,8 +25224,8 @@ SceneRoots:
   - {fileID: 218914166}
   - {fileID: 1608081445}
   - {fileID: 6823692698998980353}
-  - {fileID: 2059989808}
-  - {fileID: 2298750616775028680}
-  - {fileID: 4163465663492461827}
   - {fileID: 1132732027}
+  - {fileID: 1714191354}
+  - {fileID: 104242186}
+  - {fileID: 2059989808}
   - {fileID: 1661211927}
