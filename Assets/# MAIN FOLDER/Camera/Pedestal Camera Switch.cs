@@ -54,9 +54,11 @@ public class PedestalCameraSwitch : MonoBehaviour
             ExitPedestalMode();
         }
     }
-
     void EnterPedestalMode()
     {
+        PedestalUISlide uiSlide = pedestalInterface.GetComponentInChildren<PedestalUISlide>();
+        if (uiSlide != null && uiSlide.IsAnimating()) return; // Prevent entering during animation
+
         playerFollowCamera.Priority = 5;
         pedestalCamera.Priority = 10;
 
@@ -67,7 +69,7 @@ public class PedestalCameraSwitch : MonoBehaviour
 
         if (pedestalInterface != null)
         {
-            pedestalInterface.SetActive(true); // Enable the interface, triggers OnEnable()
+            pedestalInterface.SetActive(true); // Trigger slide-in animation
         }
 
         if (drawNotesGameObject != null)
@@ -80,6 +82,9 @@ public class PedestalCameraSwitch : MonoBehaviour
 
     void ExitPedestalMode()
     {
+        PedestalUISlide uiSlide = pedestalInterface.GetComponentInChildren<PedestalUISlide>();
+        if (uiSlide != null && uiSlide.IsAnimating()) return; // Prevent exiting during animation
+
         playerFollowCamera.Priority = 10;
         pedestalCamera.Priority = 5;
 
@@ -90,17 +95,7 @@ public class PedestalCameraSwitch : MonoBehaviour
 
         if (pedestalInterface != null)
         {
-            PedestalUISlide uiSlide = pedestalInterface.GetComponentInChildren<PedestalUISlide>();
-            if (uiSlide != null)
-            {
-                // Trigger slide-out and disable
-                uiSlide.SlideOutAndDisable();
-            }
-            else
-            {
-                // Fallback: Disable immediately
-                pedestalInterface.SetActive(false);
-            }
+            uiSlide?.SlideOutAndDisable(); // Trigger slide-out and disable
         }
 
         if (drawNotesGameObject != null)
@@ -110,7 +105,6 @@ public class PedestalCameraSwitch : MonoBehaviour
 
         isPedestalView = false;
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -118,7 +112,6 @@ public class PedestalCameraSwitch : MonoBehaviour
             isPlayerInRange = true;
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

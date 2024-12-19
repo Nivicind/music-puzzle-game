@@ -7,42 +7,52 @@ public class PedestalUISlide : MonoBehaviour
     [SerializeField] private float slideDuration = 0.5f; // Duration of the slide animation
     [SerializeField] private Vector2 offScreenPosition; // Position off-screen
     [SerializeField] private Vector2 onScreenPosition; // Position on-screen
-    [SerializeField] private GameObject parentToDisable; // Reference to the parent object to disable after transition
+    [SerializeField] private GameObject parentToDisable; // Parent object to disable after transition
+
+    private bool isAnimating = false; // Animation lock
 
     void Start()
     {
-        // Ensure the panel starts off-screen
         if (uiPanel != null)
         {
-            uiPanel.anchoredPosition = offScreenPosition;
+            uiPanel.anchoredPosition = offScreenPosition; // Ensure the panel starts off-screen
         }
     }
 
     void OnEnable()
     {
-        // Start slide-in animation when the panel is enabled
-        if (uiPanel != null)
+        if (uiPanel != null && !isAnimating)
         {
-            uiPanel.anchoredPosition = offScreenPosition; // Reset position to off-screen
-            uiPanel.DOAnchorPos(onScreenPosition, slideDuration).SetEase(Ease.OutQuad);
+            // Prevent overlapping animations
+            isAnimating = true;
+            uiPanel.anchoredPosition = offScreenPosition; // Reset position
+            uiPanel.DOAnchorPos(onScreenPosition, slideDuration)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() => isAnimating = false); // Release the lock
         }
     }
 
     public void SlideOutAndDisable()
     {
-        if (uiPanel != null)
+        if (uiPanel != null && !isAnimating)
         {
-            // Perform the slide-out animation
+            isAnimating = true; // Lock during animation
+            uiPanel.anchoredPosition = onScreenPosition; // Reset position
             uiPanel.DOAnchorPos(offScreenPosition, slideDuration)
                 .SetEase(Ease.InQuad)
                 .OnComplete(() =>
                 {
-                    // Disable the parent after the animation completes
+                    isAnimating = false; // Release the lock
                     if (parentToDisable != null)
                     {
-                        parentToDisable.SetActive(false);
+                        parentToDisable.SetActive(false); // Disable parent
                     }
                 });
         }
+    }
+
+    public bool IsAnimating()
+    {
+        return isAnimating; // Check if an animation is in progress
     }
 }
