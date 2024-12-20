@@ -21652,6 +21652,7 @@ MonoBehaviour:
   - keyCode: 107
     audioClip: {fileID: 8300000, guid: c82a8757c4104a84fb649b0328737c7b, type: 3}
   fadeOutDuration: 1
+  PianoMachineInterface: {fileID: 2059989807}
 --- !u!4 &1365875716
 Transform:
   m_ObjectHideFlags: 0

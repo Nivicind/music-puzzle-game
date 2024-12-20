@@ -13,6 +13,7 @@ public class PianoSoundManager : MonoBehaviour
 
     [SerializeField] private List<PianoKeyMapping> pianoKeyMappings; // Assign inputs and sounds in Inspector
     [SerializeField] private float fadeOutDuration = 0.5f; // Time to fade out
+    [SerializeField] private GameObject PianoMachineInterface; // Reference to the PianoMachineInterface
 
     private Dictionary<KeyCode, List<AudioSource>> activeNotes; // Tracks active sounds for each key
 
@@ -29,22 +30,21 @@ public class PianoSoundManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (var mapping in pianoKeyMappings)
+        if (PianoMachineInterface == null || !PianoMachineInterface.activeSelf)
+            return;
         {
-            KeyCode key = mapping.keyCode;
-
-            // Start playing on key press
-            if (Input.GetKeyDown(key))
+            foreach (var mapping in pianoKeyMappings)
             {
-                PlayKey(mapping);
+                if (Input.GetKeyDown(mapping.keyCode))
+                {
+                    PlayKey(mapping);
+                }
+                else if (Input.GetKeyUp(mapping.keyCode))
+                {
+                    FadeOutKey(mapping.keyCode);
+                }
             }
-
-            // Fade out all notes for this key on key release
-            if (Input.GetKeyUp(key))
-            {
-                FadeOutKey(key);
-            }
-        }
+        }        
     }
 
     private void PlayKey(PianoKeyMapping mapping)
