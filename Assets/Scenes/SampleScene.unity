@@ -21595,6 +21595,78 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1 &1365875714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365875716}
+  - component: {fileID: 1365875715}
+  m_Layer: 0
+  m_Name: Piano Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1365875715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365875714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5b38f97a00cd64183fa2fdd4bd0af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pianoKeyMappings:
+  - keyCode: 97
+    audioClip: {fileID: 8300000, guid: da95e0265974750438ace06d9ab1f48c, type: 3}
+  - keyCode: 119
+    audioClip: {fileID: 8300000, guid: 889cd776320c8d54997b74b876f43491, type: 3}
+  - keyCode: 115
+    audioClip: {fileID: 8300000, guid: c0b179c96d751ae45b8976c9295e628b, type: 3}
+  - keyCode: 101
+    audioClip: {fileID: 8300000, guid: 6e6bc23df1c969f4682fdcdc3623de43, type: 3}
+  - keyCode: 100
+    audioClip: {fileID: 8300000, guid: 8830a113db9b057438127b0b12d8efc7, type: 3}
+  - keyCode: 102
+    audioClip: {fileID: 8300000, guid: ab2db1c861a24e3409114932ef43d27c, type: 3}
+  - keyCode: 116
+    audioClip: {fileID: 8300000, guid: 40efc25e3dc80584fbbfb7eefb35adc8, type: 3}
+  - keyCode: 103
+    audioClip: {fileID: 8300000, guid: 511b0a2eb13ea974d9e33ffced9ae54f, type: 3}
+  - keyCode: 121
+    audioClip: {fileID: 8300000, guid: c8fb27cc6e684f048a8d5e871f96d31a, type: 3}
+  - keyCode: 104
+    audioClip: {fileID: 8300000, guid: 444fb002a8562c1429123441fdb75450, type: 3}
+  - keyCode: 117
+    audioClip: {fileID: 8300000, guid: f831f410e04e267468d2fc76454fc5b6, type: 3}
+  - keyCode: 106
+    audioClip: {fileID: 8300000, guid: 75b6303499ab4434f8e23610cd843cd7, type: 3}
+  - keyCode: 107
+    audioClip: {fileID: 8300000, guid: c82a8757c4104a84fb649b0328737c7b, type: 3}
+  fadeOutDuration: 1
+--- !u!4 &1365875716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365875714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1467517070
 GameObject:
   m_ObjectHideFlags: 0
@@ -24923,7 +24995,7 @@ Transform:
   m_GameObject: {fileID: 6586234914292753047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -97, y: -6, z: 0}
+  m_LocalPosition: {x: -20, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25325,3 +25397,4 @@ SceneRoots:
   - {fileID: 104242186}
   - {fileID: 2059989808}
   - {fileID: 1661211927}
+  - {fileID: 1365875716}
