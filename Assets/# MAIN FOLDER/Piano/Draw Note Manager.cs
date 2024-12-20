@@ -12,23 +12,25 @@ public class DrawNotesManager : MonoBehaviour
     public KeyCode resetKey = KeyCode.Backspace; // Key to reset all notes
     public float noteSpacing = 1f; // Vertical distance between notes
 
-    private float globalFurthestX; // Tracks the furthest X position drawn
+    private float globalFurthestX; // Tracks the furthest local X position drawn
     private bool[] isDrawing; // Tracks drawing state for each note
     private Vector3Int[] currentCellPositions; // Tracks current cell positions for each note
     private float[] nextDrawTimes; // Tracks the next draw time for each note
     private bool isDrawingLocked; // Tracks whether drawing is locked
-    private Vector3 startingPosition; // Starting position of the script's GameObject
 
-    void Start()
-    {
-        startingPosition = transform.position; // Base starting position
-        int noteCount = noteKeys.Length;
-        isDrawing = new bool[noteCount];
-        currentCellPositions = new Vector3Int[noteCount];
-        nextDrawTimes = new float[noteCount];
-        globalFurthestX = startingPosition.x; // Initialize furthest X to the starting position
-        isDrawingLocked = false; // Drawing starts unlocked
-    }
+void Start()
+{
+    int noteCount = noteKeys.Length;
+    isDrawing = new bool[noteCount];
+    currentCellPositions = new Vector3Int[noteCount];
+    nextDrawTimes = new float[noteCount];
+
+    // Initialize the global furthest X based on the DrawNotesManager's initial local position
+    Vector3 initialLocalPosition = transform.localPosition;
+    globalFurthestX = transform.InverseTransformPoint(tilemap.transform.position).x + initialLocalPosition.x;
+
+    isDrawingLocked = false; // Drawing starts unlocked
+}
 
     void Update()
     {
@@ -71,49 +73,62 @@ public class DrawNotesManager : MonoBehaviour
         }
     }
 
-    void StartDrawing(int noteIndex)
-    {
-        if (isDrawingLocked) return; // Prevent drawing if locked
+void StartDrawing(int noteIndex)
+{
+    if (isDrawingLocked) return; // Prevent drawing if locked
 
-        isDrawing[noteIndex] = true;
+    isDrawing[noteIndex] = true;
 
-        // Initialize the starting cell position for the note
-        float noteY = startingPosition.y + noteIndex * noteSpacing; // Adjust for vertical spacing
-        Vector3 worldStartPosition = new Vector3(globalFurthestX, noteY, 0);
-        currentCellPositions[noteIndex] = tilemap.WorldToCell(worldStartPosition);
+    // Always start at the global furthest X position
+    float noteY = noteIndex * noteSpacing; // Vertical offset based on note index
+    Vector3 localStartPosition = new Vector3(globalFurthestX, noteY, 0); // Start from global furthest X
+    Vector3 worldStartPosition = transform.TransformPoint(localStartPosition);
 
-        // Set the next draw time
-        nextDrawTimes[noteIndex] = Time.time;
-    }
+    // Convert to Tilemap cell position
+    currentCellPositions[noteIndex] = tilemap.WorldToCell(worldStartPosition);
+
+    // Set the next draw time
+    nextDrawTimes[noteIndex] = Time.time;
+}
 
     void DrawNoteIncrementally(int noteIndex)
     {
         if (Time.time < nextDrawTimes[noteIndex]) return;
 
-        // Check if the current cell position is within the draw area
+        // Get the current world position of the note
         Vector3 worldPosition = tilemap.CellToWorld(currentCellPositions[noteIndex]);
+
+        // Check if the current position is within the draw area
         if (drawArea.bounds.Contains(worldPosition))
         {
-            // Place the tile and update the furthest X position
+            // Place the tile at the current cell position
             tilemap.SetTile(currentCellPositions[noteIndex], bridgeTile);
-            globalFurthestX = Mathf.Max(globalFurthestX, worldPosition.x);
 
-            // Move to the next cell to the right
+            // Update the furthest global X position
+            Vector3 worldCellPosition = tilemap.CellToWorld(currentCellPositions[noteIndex]);
+            globalFurthestX = Mathf.Max(globalFurthestX, transform.InverseTransformPoint(worldCellPosition).x);
+
+            // Move to the next cell in the X direction
             currentCellPositions[noteIndex] += new Vector3Int(1, 0, 0);
 
-            // Update the next draw time using the inverted drawSpeed
+            // Update the next draw time
             nextDrawTimes[noteIndex] = Time.time + (1 / drawSpeed);
         }
         else
         {
+            // Stop drawing if out of bounds
             StopDrawing(noteIndex);
-            LockDrawing(); // Lock drawing if edge is reached
+            LockDrawing();
         }
     }
 
     void StopDrawing(int noteIndex)
     {
         isDrawing[noteIndex] = false;
+
+        // Update the furthest X position when stopping
+        Vector3 worldPosition = tilemap.CellToWorld(currentCellPositions[noteIndex]);
+        globalFurthestX = Mathf.Max(globalFurthestX, transform.InverseTransformPoint(worldPosition).x);
     }
 
     public void StopAllDrawing()
@@ -123,28 +138,35 @@ public class DrawNotesManager : MonoBehaviour
             isDrawing[i] = false; // Stop all drawing processes
         }
     }
+
     public void UnlockDrawing()
     {
         isDrawingLocked = false; // Allow drawing to resume
     }
+
     void LockDrawing()
     {
         isDrawingLocked = true;
     }
 
-    public void ResetNotes()
+void ResetNotes()
+{
+    // Clear all tiles from the tilemap
+    tilemap.ClearAllTiles();
+
+    // Reset global furthest X to the DrawNotesManager's initial local position
+    Vector3 initialLocalPosition = transform.localPosition;
+    globalFurthestX = transform.InverseTransformPoint(tilemap.transform.position).x + initialLocalPosition.x;
+
+    // Reset all drawing states
+    for (int i = 0; i < isDrawing.Length; i++)
     {
-        tilemap.ClearAllTiles();
-        globalFurthestX = startingPosition.x; // Reset to the starting X position
-
-        for (int i = 0; i < isDrawing.Length; i++)
-        {
-            isDrawing[i] = false;
-            nextDrawTimes[i] = 0;
-        }
-
-        isDrawingLocked = false; // Unlock drawing
+        isDrawing[i] = false;
+        currentCellPositions[i] = Vector3Int.zero;
+        nextDrawTimes[i] = 0;
     }
 
-
+    // Unlock drawing
+    isDrawingLocked = false;
+}
 }
